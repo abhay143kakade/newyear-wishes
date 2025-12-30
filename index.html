@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>New Year Wishes 🎉</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body{
+      margin:0;
+      height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:linear-gradient(120deg,#020024,#090979,#00d4ff);
+      font-family: Arial, sans-serif;
+      color:#fff;
+      text-align:center;
+    }
+    .card{
+      padding:30px 24px;
+      border-radius:20px;
+      background:rgba(0,0,0,.25);
+      animation:fadeUp 1.2s ease;
+      max-width:520px;
+    }
+    h1{margin-bottom:10px;font-size:2.2rem}
+    p{font-size:1.1rem;line-height:1.6}
+    .from{margin-top:14px;opacity:.9}
+    @keyframes fadeUp{
+      from{opacity:0;transform:translateY(20px)}
+      to{opacity:1;transform:translateY(0)}
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1 id="title">Happy New Year 🎉</h1>
+    <p id="msg">Wishing you joy, love and success.</p>
+    <div class="from" id="from"></div>
+  </div>
+
+  <script>
+    const q = new URLSearchParams(location.search);
+    const to = q.get("to");
+    const from = q.get("from");
+    const msg = q.get("msg");
+
+    if (to) document.getElementById("title").innerText = `Happy New Year ${to} 🎉`;
+    if (msg) document.getElementById("msg").innerText = msg;
+    if (from) document.getElementById("from").innerText = `— ${from}`;
+  </script>
+
+</body>
+</html>
