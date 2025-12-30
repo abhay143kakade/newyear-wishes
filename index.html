@@ -32,24 +32,28 @@
     }
   </style>
 </head>
-<body>
+<body style="margin:0; background:#0b1220; color:white; display:flex; justify-content:center; align-items:center; height:100vh; font-family:Arial; text-align:center;">
 
-  <div class="card">
-    <h1 id="title">Happy New Year 🎉</h1>
-    <p id="msg">Wishing you joy, love and success.</p>
-    <div class="from" id="from"></div>
+  <div>
+    <h1 id="message">Happy New Year 🎉</h1>
+    <p id="from" style="opacity:0.8; font-size:18px;"></p>
   </div>
 
   <script>
-    const q = new URLSearchParams(location.search);
-    const to = q.get("to");
-    const from = q.get("from");
-    const msg = q.get("msg");
+    const params = new URLSearchParams(window.location.search);
 
-    if (to) document.getElementById("title").innerText = `Happy New Year ${to} 🎉`;
-    if (msg) document.getElementById("msg").innerText = msg;
-    if (from) document.getElementById("from").innerText = `— ${from}`;
+    const name = params.get("name");
+    const msg = params.get("msg");
+
+    if (msg) {
+      document.getElementById("message").innerText = decodeURIComponent(msg);
+    }
+
+    if (name) {
+      document.getElementById("from").innerText = "— " + decodeURIComponent(name);
+    }
   </script>
 
 </body>
+
 </html>
